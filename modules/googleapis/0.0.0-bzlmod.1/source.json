@@ -3,7 +3,7 @@
     "integrity": "sha256-pQ5rhprzQKoRIPCti4T+CirkRby+Fy1dAkR5dAo1zdk=",
     "strip_prefix": "googleapis-a5c9ffcfbd3212b98ffeeae5f77915ca006fe43d",
     "patches": {
-        "module.patch": "sha256-ug2ESUHQ6lWd2Rnj7iPp/s4NLglqJd9UgTNCNne3K7s="
+        "module.patch": "sha256-eRQKYqDltxZIoclMtatjPOc9We3wAHYUUwj789Kz0o0="
     },
     "patch_strip": 1
 }
