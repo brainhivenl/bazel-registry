@@ -1,0 +1,5 @@
+{
+    "url": "https://github.com/ticketmaster/rules_opa/archive/refs/tags/v0.8.0.tar.gz",
+    "integrity": "sha256-b+cPk1+dAHZKXSMfQjTJLnXVo5mxT+cTjyMx3MXSSBs=",
+    "strip_prefix": "rules_opa-0.8.0"
+}

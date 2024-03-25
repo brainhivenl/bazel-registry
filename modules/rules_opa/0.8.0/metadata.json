@@ -1,0 +1,11 @@
+{
+    "homepage": "https://github.com/ticketmaster/rules_opa",
+    "maintainers": [],
+    "repository": [
+        "github:ticketmaster/rules_opa"
+    ],
+    "versions": [
+        "0.8.0"
+    ],
+    "yanked_versions": {}
+}
