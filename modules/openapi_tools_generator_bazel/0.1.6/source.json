@@ -1,0 +1,8 @@
+{
+    "url": "https://github.com/OpenAPITools/openapi-generator-bazel/releases/download/v0.1.6/openapi-tools-generator-bazel-0.1.6.tar.gz",
+    "integrity": "sha256-ralGlLEPJQPFKkhCe9hYkyO/9ZEL0aflISzjRwLQr2U=",
+    "patches": {
+        "pr-51.patch": "sha256-3wTlAZWXMubElbhcPJtPWph3SKoB59T6k4KOXKFeTTo="
+    },
+    "patch_strip": 1
+}
