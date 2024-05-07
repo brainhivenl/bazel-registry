@@ -1,5 +1,5 @@
 {
-    "url": "https://github.com/brainhivenl/libpq/archive/5575fe6430220004b63a6eae159136b177018fa3.tar.gz",
-    "integrity": "sha256-FVScFAZc1JBuKBrQpqaqXh+ztvQVab1CVQUf4c6zkvQ=",
-    "strip_prefix": "libpq-5575fe6430220004b63a6eae159136b177018fa3"
+    "url": "https://github.com/brainhivenl/libpq/archive/ebdeb0cc9b8e051779e00b37ec0f93fab9ba8dd8.tar.gz",
+    "integrity": "sha256-sj4J8Ol92RrcH/vwzPKU8PUPgB55n/wX9a4McEhFIYM=",
+    "strip_prefix": "libpq-ebdeb0cc9b8e051779e00b37ec0f93fab9ba8dd8"
 }
