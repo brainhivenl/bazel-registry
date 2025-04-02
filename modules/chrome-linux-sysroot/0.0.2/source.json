@@ -1,0 +1,7 @@
+{
+    "url": "https://github.com/brainhivenl/chrome-linux-sysroot/archive/refs/tags/v0.0.2.tar.gz",
+    "integrity": "sha256-GWN11pa6J/jKy7oQwnNsGMP0S7+4YHsY78EhoLm0RO4=",
+    "strip_prefix": "chrome-linux-sysroot-0.0.2",
+    "patches": {},
+    "patch_strip": 1
+}

@@ -1,0 +1,32 @@
+"""Build setup for chrome-linux-sysroot"""
+
+module(name = "chrome-linux-sysroot", version = "0.0.2")
+
+_BUILD_FILE = """
+filegroup(
+  name = "sysroot",
+  srcs = glob(["*/**"], exclude = [
+    "lib/systemd/system/system-systemd*cryptsetup.slice"
+  ]),
+  visibility = ["//visibility:public"],
+)
+"""
+
+# Based on https://github.com/chromium/chromium/blob/082a46c99411023b97fae0476b526b54ff98aa3d/build/DEPS
+SYSROOTS = {
+    "arm64": "2f915d821eec27515c0c6d21b69898e23762908d8d7ccc1aa2a8f5f25e8b7e18",
+    "amd64": "36a164623d03f525e3dfb783a5e9b8a00e98e1ddd2b5cff4e449bd016dd27e50",
+    "armhf": "47b3a0b161ca011b2b33d4fc1ef6ef269b8208a0b7e4c900700c345acdfd1814",
+    "i386": "63f0e5128b84f7b0421956a4a40affa472be8da0e58caf27e9acbc84072daee7",
+    "mips64el": "58f8594905bfe0fa0b7c7a7e882f01725455d07b7161e6539de5169867009b9f",
+    "mipsel": "2098b42d9698f5c8a15683abbf6d424b7f56200bd2488198e15f31554acb391f",
+}
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+[http_archive(
+    name = "debian_bullseye_{}".format(arch),
+    build_file_content = _BUILD_FILE,
+    sha256 = sha256,
+    type = "tar.xz",
+    urls = ["https://commondatastorage.googleapis.com/chrome-linux-sysroot/{}".format(sha256)],
+) for arch, sha256 in SYSROOTS.items()]
