@@ -1,0 +1,7 @@
+{
+  "url": "https://github.com/brainhivenl/chrome-linux-sysroot/archive/refs/tags/v0.0.3.tar.gz",
+  "integrity": "sha256-m5EGqv7VrryfEkVbQhnc62HqKrFOWHDfDJoH+fdFLW4=",
+  "strip_prefix": "chrome-linux-sysroot-0.0.3",
+  "patches": {},
+  "patch_strip": 1
+}
