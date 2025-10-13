@@ -3,7 +3,7 @@
     "strip_prefix": "alsa-lib-1.2.9",
     "integrity": "sha256-3JxkP9xMz9BXLMaFhY3UHgivtYPzBGCzF+QYgnX2FbI=",
     "overlay": {
-        "BUILD.bazel": "3e2T4qXkpstO9pc/83K69lsZf0iW5DADDVlx6bVzL+g=",
+        "BUILD.bazel": "sha-2563e2T4qXkpstO9pc/83K69lsZf0iW5DADDVlx6bVzL+g=",
         "MODULE.bazel": "sha256-GwSe1XRQtiEmgoSb8CbhTuvvDE/dlM0x/WbCQq0kebU="
     },
     "patches": {
