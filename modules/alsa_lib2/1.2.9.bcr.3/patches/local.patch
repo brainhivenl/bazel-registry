@@ -11,3 +11,25 @@ index 2498cd26..8b448bdf 100644
  #else
  #error Header defining endianness not defined
  #endif
+diff --git a/include/sound/type_compat.h b/include/sound/type_compat.h
+index c670245c..1b14d22f 100644
+--- a/include/sound/type_compat.h
++++ b/include/sound/type_compat.h
+@@ -21,8 +21,16 @@ typedef int64_t __s64;
+ #define __cpu_to_be32 BE_32(x)
+ #define __cpu_to_le16 LE_16(x)
+ #define __cpu_to_be16 BE_16(x)
+-#else
++
++#elif defined(HAVE_SYS_ENDIAN_H)
+ #include <sys/endian.h>
++#elif defined(HAVE_MACHINE_ENDIAN_H)
++#include <machine/endian.h>
++#else
++#error Header defining endianness not defined
++#endif
++
++
+ #if __BYTE_ORDER == __LITTLE_ENDIAN
+ #define __cpu_to_le32(x) (x)
+ #define __cpu_to_be32(x) bswap_32(x)
