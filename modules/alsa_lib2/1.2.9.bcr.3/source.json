@@ -7,7 +7,7 @@
         "MODULE.bazel": "sha256-GwSe1XRQtiEmgoSb8CbhTuvvDE/dlM0x/WbCQq0kebU="
     },
     "patches": {
-        "local.patch": "sha256-zsdlEGeI+TtWmaveHIvwCmie1/9QeY3XOIAuenz1gbg="
+        "local.patch": "sha256-tEX/U2jbAgPWjtVWA+Ix5SVMk/Pcmjer+Y3Fx0ZU24c="
     },
     "patch_strip": 1
 }

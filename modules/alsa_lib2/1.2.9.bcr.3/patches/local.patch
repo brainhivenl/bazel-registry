@@ -1,3 +1,16 @@
+diff --git a/configure.ac b/configure.ac
+index 2a808fa8..f3c59105 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -787,7 +787,7 @@ if test "$ac_cv_header_sys_endian_h" != "yes"; then
+ test "$ac_cv_header_endian_h" = "yes" && echo "#include <endian.h>" >> include/asoundlib.h
+ else
+ cat >> include/asoundlib.h <<EOF
+-#include <sys/endian.h>
++#include <machine/endian.h>
+ #ifndef __BYTE_ORDER
+ #define __BYTE_ORDER BYTE_ORDER
+ #endif
 diff --git a/include/local.h b/include/local.h
 index 2498cd26..8b448bdf 100644
 --- a/include/local.h
@@ -12,10 +25,10 @@ index 2498cd26..8b448bdf 100644
  #error Header defining endianness not defined
  #endif
 diff --git a/include/sound/type_compat.h b/include/sound/type_compat.h
-index c670245c..1b14d22f 100644
+index c670245c..0de38254 100644
 --- a/include/sound/type_compat.h
 +++ b/include/sound/type_compat.h
-@@ -21,8 +21,16 @@ typedef int64_t __s64;
+@@ -21,8 +21,13 @@ typedef int64_t __s64;
  #define __cpu_to_be32 BE_32(x)
  #define __cpu_to_le16 LE_16(x)
  #define __cpu_to_be16 BE_16(x)
@@ -26,9 +39,6 @@ index c670245c..1b14d22f 100644
 +#elif defined(HAVE_MACHINE_ENDIAN_H)
 +#include <machine/endian.h>
 +#else
-+#error Header defining endianness not defined
-+#endif
-+
 +
  #if __BYTE_ORDER == __LITTLE_ENDIAN
  #define __cpu_to_le32(x) (x)
