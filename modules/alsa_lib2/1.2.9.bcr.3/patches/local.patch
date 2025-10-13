@@ -1,0 +1,13 @@
+diff --git a/include/local.h b/include/local.h
+index 2498cd26..8b448bdf 100644
+--- a/include/local.h
++++ b/include/local.h
+@@ -37,6 +37,8 @@
+ #include <endian.h>
+ #elif defined(HAVE_SYS_ENDIAN_H)
+ #include <sys/endian.h>
++#elif defined(HAVE_MACHINE_ENDIAN_H)
++#include <machine/endian.h>
+ #else
+ #error Header defining endianness not defined
+ #endif
