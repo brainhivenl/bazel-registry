@@ -1,8 +1,17 @@
 diff --git a/configure.ac b/configure.ac
-index 2a808fa8..f3c59105 100644
+index b6266651..fa2c0a72 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -787,7 +787,7 @@ if test "$ac_cv_header_sys_endian_h" != "yes"; then
+@@ -334,7 +334,7 @@ else
+ fi
+ 
+ dnl Check for headers
+-AC_CHECK_HEADERS([endian.h sys/endian.h sys/shm.h malloc.h])
++AC_CHECK_HEADERS([endian.h machine/endian.h sys/shm.h malloc.h])
+ 
+ dnl Check for resmgr support...
+ AC_MSG_CHECKING(for resmgr support)
+@@ -767,7 +767,7 @@ if test "$ac_cv_header_sys_endian_h" != "yes"; then
  test "$ac_cv_header_endian_h" = "yes" && echo "#include <endian.h>" >> include/asoundlib.h
  else
  cat >> include/asoundlib.h <<EOF
@@ -12,34 +21,46 @@ index 2a808fa8..f3c59105 100644
  #define __BYTE_ORDER BYTE_ORDER
  #endif
 diff --git a/include/local.h b/include/local.h
-index 2498cd26..8b448bdf 100644
+index 151e3fd4..6f75a9ae 100644
 --- a/include/local.h
 +++ b/include/local.h
-@@ -37,6 +37,8 @@
- #include <endian.h>
- #elif defined(HAVE_SYS_ENDIAN_H)
- #include <sys/endian.h>
-+#elif defined(HAVE_MACHINE_ENDIAN_H)
+@@ -30,13 +30,7 @@
+ #include <string.h>
+ #include <fcntl.h>
+ #include <assert.h>
+-#ifdef HAVE_ENDIAN_H
+-#include <endian.h>
+-#elif defined(HAVE_SYS_ENDIAN_H)
+-#include <sys/endian.h>
+-#else
+-#error Header defining endianness not defined
+-#endif
 +#include <machine/endian.h>
- #else
- #error Header defining endianness not defined
+ #ifndef __BYTE_ORDER
+ #define __BYTE_ORDER BYTE_ORDER
  #endif
 diff --git a/include/sound/type_compat.h b/include/sound/type_compat.h
-index c670245c..0de38254 100644
+index c670245c..0b5966cf 100644
 --- a/include/sound/type_compat.h
 +++ b/include/sound/type_compat.h
-@@ -21,8 +21,13 @@ typedef int64_t __s64;
- #define __cpu_to_be32 BE_32(x)
+@@ -22,7 +22,7 @@ typedef int64_t __s64;
  #define __cpu_to_le16 LE_16(x)
  #define __cpu_to_be16 BE_16(x)
--#else
-+
-+#elif defined(HAVE_SYS_ENDIAN_H)
- #include <sys/endian.h>
-+#elif defined(HAVE_MACHINE_ENDIAN_H)
+ #else
+-#include <sys/endian.h>
 +#include <machine/endian.h>
-+#else
-+
  #if __BYTE_ORDER == __LITTLE_ENDIAN
  #define __cpu_to_le32(x) (x)
  #define __cpu_to_be32(x) bswap_32(x)
+diff --git a/include/sound/uapi/asound.h b/include/sound/uapi/asound.h
+index 62a0364f..3dabeb14 100644
+--- a/include/sound/uapi/asound.h
++++ b/include/sound/uapi/asound.h
+@@ -28,7 +28,7 @@
+ #include <linux/types.h>
+ #include <asm/byteorder.h>
+ #else
+-#include <sys/endian.h>
++#include <machine/endian.h>
+ #include <sys/ioctl.h>
+ #endif
