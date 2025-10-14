@@ -20,6 +20,19 @@ index b6266651..fa2c0a72 100644
  #ifndef __BYTE_ORDER
  #define __BYTE_ORDER BYTE_ORDER
  #endif
+diff --git a/include/asoundlib.h b/include/asoundlib.h
+index 94dfb7b6..fedfa7df 100644
+--- a/include/asoundlib.h
++++ b/include/asoundlib.h
+@@ -38,7 +38,7 @@
+ #include <poll.h>
+ #include <errno.h>
+ #include <stdarg.h>
+-#include <endian.h>
++#include <machine/endian.h>
+ 
+ #ifndef __GNUC__
+ #define __inline__ inline
 diff --git a/include/bswap.h b/include/bswap.h
 index e590124c..f6c38354 100644
 --- a/include/bswap.h
