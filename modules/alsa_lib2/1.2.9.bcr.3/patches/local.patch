@@ -20,24 +20,37 @@ index b6266651..fa2c0a72 100644
  #ifndef __BYTE_ORDER
  #define __BYTE_ORDER BYTE_ORDER
  #endif
+diff --git a/include/bswap.h b/include/bswap.h
+index e590124c..f6c38354 100644
+--- a/include/bswap.h
++++ b/include/bswap.h
+@@ -23,12 +23,12 @@
+ #define __BSWAP_H
+ 
+ #if defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__)
+-#include <sys/endian.h>
++#include <machine/endian.h>
+ #define bswap_16 bswap16
+ #define bswap_32 bswap32
+ #define bswap_64 bswap64
+ #elif defined(__OpenBSD__)
+-#include <sys/endian.h>
++#include <machine/endian.h>
+ #define bswap_16 swap16
+ #define bswap_32 swap32
+ #define bswap_64 swap64
 diff --git a/include/local.h b/include/local.h
-index 151e3fd4..6f75a9ae 100644
+index 151e3fd4..a624a806 100644
 --- a/include/local.h
 +++ b/include/local.h
-@@ -30,13 +30,7 @@
- #include <string.h>
- #include <fcntl.h>
- #include <assert.h>
--#ifdef HAVE_ENDIAN_H
--#include <endian.h>
--#elif defined(HAVE_SYS_ENDIAN_H)
+@@ -33,7 +33,7 @@
+ #ifdef HAVE_ENDIAN_H
+ #include <endian.h>
+ #elif defined(HAVE_SYS_ENDIAN_H)
 -#include <sys/endian.h>
--#else
--#error Header defining endianness not defined
--#endif
 +#include <machine/endian.h>
- #ifndef __BYTE_ORDER
- #define __BYTE_ORDER BYTE_ORDER
+ #else
+ #error Header defining endianness not defined
  #endif
 diff --git a/include/sound/type_compat.h b/include/sound/type_compat.h
 index c670245c..0b5966cf 100644
@@ -64,3 +77,4 @@ index 62a0364f..3dabeb14 100644
 +#include <machine/endian.h>
  #include <sys/ioctl.h>
  #endif
+ 
