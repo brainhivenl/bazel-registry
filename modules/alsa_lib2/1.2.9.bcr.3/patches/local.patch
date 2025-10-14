@@ -40,14 +40,16 @@ index e590124c..f6c38354 100644
  #define bswap_32 swap32
  #define bswap_64 swap64
 diff --git a/include/local.h b/include/local.h
-index 151e3fd4..a624a806 100644
+index 151e3fd4..2304f725 100644
 --- a/include/local.h
 +++ b/include/local.h
-@@ -33,7 +33,7 @@
+@@ -32,8 +32,8 @@
+ #include <assert.h>
  #ifdef HAVE_ENDIAN_H
  #include <endian.h>
- #elif defined(HAVE_SYS_ENDIAN_H)
+-#elif defined(HAVE_SYS_ENDIAN_H)
 -#include <sys/endian.h>
++#elif defined(HAVE_MACHINE_ENDIAN_H)
 +#include <machine/endian.h>
  #else
  #error Header defining endianness not defined
